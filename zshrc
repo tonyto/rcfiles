@@ -50,7 +50,9 @@ export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/s
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# pushes current branch to current branch origin
-alias gp="git pull"
-alias gpsh="git push"
+# git alises
+alias gs="git status"
+alias gp="git pull --rebase"
+alias gpsh="git push origin head"
+
 alias tmux="TERM=screen-256color-bce tmux -2"
