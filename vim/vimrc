@@ -18,8 +18,6 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-rails.git'
 " Snippets for our use :)
 Bundle 'garbas/vim-snipmate'
-" Commenting and uncommenting stuff
-Bundle 'tomtom/tcomment_vim'
 " Molokai theme
 Bundle 'tomasr/molokai'
 " Vim Ruby
@@ -42,6 +40,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-dispatch'
 
 Bundle 'plasticboy/vim-markdown'
+" Quick commenting
+Bundle 'scrooloose/nerdcommenter'
 
 
 set tags=./tags; " Set tags directory
@@ -92,7 +92,8 @@ set number
 let mapleader=","
 
 " Toggle whitespace
-noremap <leader>l :set list!<cr>
+"noremap <leader>l :set list!<cr>
+
 " Strip Trailing
 function! <SID>StripTrailingWhitespaces()
 	" Save the last search and cursor position
@@ -106,6 +107,12 @@ function! <SID>StripTrailingWhitespaces()
 	call cursor(l, c)
 endfunction
 nnoremap <leader>W :call <SID>StripTrailingWhitespaces()<cr>
+
+" remap window nagivation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Searching
 set hlsearch
