@@ -52,9 +52,27 @@ eval "$(rbenv init -)"
 
 export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # git alises
 alias gs="git status"
 alias gp="git pull --rebase"
 alias gpsh="git push origin head"
 
 alias tmux="TERM=screen-256color-bce tmux -2"
+
+# docker alises
+alias dc="docker-compose"
+
+# markdown reader
+rmd () {
+  pandoc $1 | lynx -stdin
+}
+
+function version_for(){
+  local jira_key="$1"
+  local sha="$(git --no-pager log --first-parent develop --format=format:%H --grep $jira_key)"
+  git --no-pager tag --contains "$sha"
+}
